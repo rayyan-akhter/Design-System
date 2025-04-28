@@ -55,16 +55,20 @@ const Home = () => {
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-b from-background to-muted">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              DesignSystem
-            </h1>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">DesignForge</h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               A modern component library for building beautiful and accessible
               user interfaces.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>
-                <Link to="/components">Get Started</Link>
+                <a
+                  href="https://lovely-peony-715cf8.netlify.app/?path=/docs-configure-your-project--docs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Get Started
+                </a>
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <Link to="/docs">Documentation</Link>
