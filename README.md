@@ -1,73 +1,140 @@
-# Welcome to your Lovable project
+# DesignSystem
 
-## Project info
+A modern design system built with React, TypeScript, and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/0b7bbd77-477b-4453-9a43-f890d29efac3
+## Project Name: DesignSystem
 
-## How can I edit this code?
+DesignSystem is a comprehensive design system that provides a complete set of tools for building consistent, accessible, and beautiful user interfaces. The name reflects its core purpose:
 
-There are several ways of editing your application.
+- **Design**: A complete set of design tokens, components, and patterns
+- **System**: A cohesive collection of tools and guidelines for building interfaces
+- **System**: Ensures consistency and maintainability across applications
 
-**Use Lovable**
+## Technologies Used
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0b7bbd77-477b-4453-9a43-f890d29efac3) and start prompting.
+### Core Technologies
 
-Changes made via Lovable will be committed automatically to this repo.
+- **React**: A JavaScript library for building user interfaces
+- **TypeScript**: For type-safe code and better developer experience
+- **Tailwind CSS**: Utility-first CSS framework for rapid UI development
+- **Vite**: Next-generation frontend tooling for faster development
 
-**Use your preferred IDE**
+### UI Components
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Radix UI**: Unstyled, accessible components for building high‑quality design systems
+- **Lucide Icons**: Beautiful & consistent icons
+- **Class Variance Authority**: For managing component variants
+- **Tailwind Merge**: For merging Tailwind CSS classes efficiently
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Development Tools
 
-Follow these steps:
+- **Storybook**: For component development and documentation
+- **ESLint**: For code linting
+- **Prettier**: For code formatting
+- **PostCSS**: For processing CSS
+- **Autoprefixer**: For adding vendor prefixes
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Testing & Quality
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- **Jest**: For unit testing
+- **React Testing Library**: For component testing
+- **Playwright**: For end-to-end testing
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Build & Deployment
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+- **Vite**: For building and bundling
+- **GitHub Actions**: For CI/CD
+- **Netlify**: For hosting and deployment
+
+## Color System Component
+
+The Color System component provides a comprehensive view of the design system's color palette. It displays all color tokens in an organized, interactive layout.
+
+### Features
+
+- **Color Groups**: Displays colors organized into four main groups:
+
+  - Primary Colors: Main brand colors with various shades
+  - Secondary Colors: Supporting colors for UI elements
+  - Tertiary Colors: Additional colors for accents and highlights
+  - Semantic Colors: Colors for specific states (success, warning, error, info)
+
+- **Interactive Controls**:
+
+  - `showHex`: Toggle display of hex color values
+  - `showLabels`: Toggle display of color scale labels
+  - `showPrimary/Secondary/Tertiary/Semantic`: Toggle visibility of each color group
+  - `colorCardHeight`: Adjust the height of color cards (default: 96px)
+
+- **Responsive Layout**:
+  - Adapts to different screen sizes
+  - Grid layout: 1 column on mobile, 2 on tablet, 3 on laptop, 4 on desktop
+  - Maintains consistent spacing and alignment
+
+### Usage
+
+```tsx
+import { ColorSystem } from "@/components/design-system/ColorSystem";
+
+// Basic usage
+<ColorSystem />
+
+// With custom props
+<ColorSystem
+  showHex={true}
+  showLabels={false}
+  showPrimary={true}
+  showSecondary={true}
+  showTertiary={true}
+  showSemantic={true}
+  colorCardHeight={120}
+  className="max-w-7xl mx-auto"
+/>
 ```
 
-**Edit a file directly in GitHub**
+### Props
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+| Prop              | Type    | Default   | Description                     |
+| ----------------- | ------- | --------- | ------------------------------- |
+| `showHex`         | boolean | false     | Show hex color values           |
+| `showLabels`      | boolean | true      | Show color scale labels         |
+| `showPrimary`     | boolean | true      | Show primary color group        |
+| `showSecondary`   | boolean | true      | Show secondary color group      |
+| `showTertiary`    | boolean | true      | Show tertiary color group       |
+| `showSemantic`    | boolean | true      | Show semantic color group       |
+| `colorCardHeight` | number  | 96        | Height of color cards in pixels |
+| `className`       | string  | undefined | Additional CSS classes          |
 
-**Use GitHub Codespaces**
+### Color Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Each color in the system is defined using CSS variables with HSL values:
 
-## What technologies are used for this project?
+```css
+:root {
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+  --primary-50: 210 40% 98%;
+  --primary-100: 210 40% 96.1%;
+  /* ... other shades ... */
+}
+```
 
-This project is built with:
+### Storybook Integration
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+The component is fully documented in Storybook with:
 
-## How can I deploy this project?
+- Interactive controls for all props
+- Multiple story variants
+- Comprehensive documentation
+- Live preview of changes
 
-Simply open [Lovable](https://lovable.dev/projects/0b7bbd77-477b-4453-9a43-f890d29efac3) and click on Share -> Publish.
+### Accessibility
 
-## Can I connect a custom domain to my Lovable project?
+- Color contrast ratios meet WCAG 2.1 standards
+- Semantic color usage for different states
+- Clear visual hierarchy
+- Responsive text sizing
 
-Yes, you can!
+### Theme Support
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+The color system supports both light and dark themes through CSS variables and Tailwind's dark mode.

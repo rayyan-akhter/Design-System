@@ -1,47 +1,41 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "@/components/theme-provider";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Home from "@/pages/Home";
+import ColorSystem from "@/components/design-system/ColorSystem";
+import AccordionPage from "@/pages/components/AccordionPage";
+import TabsPage from "@/pages/components/TabsPage";
+import PaginationPage from "@/pages/components/PaginationPage";
+import Documentation from "@/pages/Documentation";
+import { Toaster } from "@/components/ui/sonner";
 
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-import Documentation from "./pages/Documentation";
-import Components from "./pages/Components";
-import NavBar from "./components/design-system/NavBar";
-import Footer from "./components/design-system/Footer";
-import ColorSystem from "./components/design-system/ColorSystem";
-import AccordionPage from "./pages/components/AccordionPage";
-import TabsPage from "./pages/components/TabsPage";
-import PaginationPage from "./pages/components/PaginationPage";
-
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
+const App = () => {
+  return (
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <Router>
         <div className="min-h-screen flex flex-col">
-          <NavBar />
+          <Navbar />
           <main className="flex-1">
             <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/documentation" element={<Documentation />} />
-              <Route path="/components" element={<Components />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/docs" element={<Documentation />} />
               <Route path="/components/colors" element={<ColorSystem />} />
               <Route path="/components/accordion" element={<AccordionPage />} />
               <Route path="/components/tabs" element={<TabsPage />} />
-              <Route path="/components/pagination" element={<PaginationPage />} />
-              <Route path="*" element={<NotFound />} />
+              <Route
+                path="/components/pagination"
+                element={<PaginationPage />}
+              />
             </Routes>
           </main>
           <Footer />
+          <Toaster />
         </div>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+      </Router>
+    </ThemeProvider>
+  );
+};
 
 export default App;
