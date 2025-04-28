@@ -4,28 +4,28 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ColorSwatch, AccordionHorizontal, Tabs as TabsIcon, Book } from "lucide-react";
+import { Palette, ChevronDown, LayoutGrid, Book } from "lucide-react";
 
 const Index = () => {
   const componentCards = [
     {
       title: "Color System",
       description: "Comprehensive color tokens for enterprise applications with light and dark theme support.",
-      icon: <ColorSwatch className="h-8 w-8" />,
+      icon: <Palette className="h-8 w-8" />,
       path: "/components/colors",
       color: "text-primary-600"
     },
     {
       title: "Accordion",
       description: "Expandable content sections for organizing information in a limited space.",
-      icon: <AccordionHorizontal className="h-8 w-8" />,
+      icon: <ChevronDown className="h-8 w-8" />,
       path: "/components/accordion",
       color: "text-secondary-600"
     },
     {
       title: "Tabs",
       description: "Content organization with tabbed navigation for easy switching between views.",
-      icon: <TabsIcon className="h-8 w-8" />,
+      icon: <LayoutGrid className="h-8 w-8" />,
       path: "/components/tabs",
       color: "text-tertiary-600"
     }

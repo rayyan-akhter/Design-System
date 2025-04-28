@@ -3,7 +3,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ColorSwatch, AccordionHorizontal, Tabs as TabsIcon } from "lucide-react";
+import { Palette, ChevronDown, LayoutGrid } from "lucide-react";
 
 const Components = () => {
   const components = [
@@ -11,7 +11,7 @@ const Components = () => {
       name: "Color System",
       description: "Color system tokens and utilities for light and dark themes",
       path: "/components/colors",
-      icon: <ColorSwatch className="h-8 w-8 text-primary-500" />,
+      icon: <Palette className="h-8 w-8 text-primary-500" />,
       bgClass: "bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-950 dark:to-primary-900"
     },
     {
@@ -28,14 +28,14 @@ const Components = () => {
       name: "Accordion",
       description: "Vertically stacked interactive headings",
       path: "/components/accordion",
-      icon: <AccordionHorizontal className="h-8 w-8 text-tertiary-500" />,
+      icon: <ChevronDown className="h-8 w-8 text-tertiary-500" />,
       bgClass: "bg-gradient-to-br from-tertiary-50 to-tertiary-100 dark:from-tertiary-950 dark:to-tertiary-900"
     },
     {
       name: "Tabs",
       description: "Organize content into separate views",
       path: "/components/tabs",
-      icon: <TabsIcon className="h-8 w-8 text-info-500" />,
+      icon: <LayoutGrid className="h-8 w-8 text-info-500" />,
       bgClass: "bg-gradient-to-br from-info-50 to-info-100 dark:from-info-950 dark:to-info-900"
     }
   ];

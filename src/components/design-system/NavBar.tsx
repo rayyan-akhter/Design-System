@@ -8,15 +8,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger 
 } from "@/components/ui/dropdown-menu";
-import { ChevronDown, Book, CircleUser, ColorSwatch, AccordionHorizontal, Tabs as TabsIcon } from "lucide-react";
+import { ChevronDown, Book, CircleUser, Palette, LayoutGrid } from "lucide-react";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const componentLinks = [
-    { name: "Colors", path: "/components/colors", icon: <ColorSwatch className="mr-2 h-4 w-4" /> },
-    { name: "Accordion", path: "/components/accordion", icon: <AccordionHorizontal className="mr-2 h-4 w-4" /> },
-    { name: "Tabs", path: "/components/tabs", icon: <TabsIcon className="mr-2 h-4 w-4" /> },
+    { name: "Colors", path: "/components/colors", icon: <Palette className="mr-2 h-4 w-4" /> },
+    { name: "Accordion", path: "/components/accordion", icon: <ChevronDown className="mr-2 h-4 w-4" /> },
+    { name: "Tabs", path: "/components/tabs", icon: <LayoutGrid className="mr-2 h-4 w-4" /> },
   ];
 
   return (
