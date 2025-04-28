@@ -3,7 +3,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Palette, ChevronDown, LayoutGrid } from "lucide-react";
+import { Palette, ChevronDown, LayoutGrid, List } from "lucide-react";
 
 const Components = () => {
   const components = [
@@ -13,16 +13,6 @@ const Components = () => {
       path: "/components/colors",
       icon: <Palette className="h-8 w-8 text-primary-500" />,
       bgClass: "bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-950 dark:to-primary-900"
-    },
-    {
-      name: "Badge",
-      description: "Small status descriptors for UI elements",
-      path: "/components/badge",
-      icon: <div className="flex gap-1">
-        <span className="inline-flex bg-primary text-primary-foreground text-xs font-semibold px-2 py-1 rounded-full">Badge</span>
-        <span className="inline-flex bg-secondary text-secondary-foreground text-xs font-semibold px-2 py-1 rounded-full">Tag</span>
-      </div>,
-      bgClass: "bg-gradient-to-br from-secondary-50 to-secondary-100 dark:from-secondary-950 dark:to-secondary-900"
     },
     {
       name: "Accordion",
@@ -37,6 +27,13 @@ const Components = () => {
       path: "/components/tabs",
       icon: <LayoutGrid className="h-8 w-8 text-info-500" />,
       bgClass: "bg-gradient-to-br from-info-50 to-info-100 dark:from-info-950 dark:to-info-900"
+    },
+    {
+      name: "Pagination",
+      description: "Navigate through multiple pages of content",
+      path: "/components/pagination",
+      icon: <List className="h-8 w-8 text-secondary-500" />,
+      bgClass: "bg-gradient-to-br from-secondary-50 to-secondary-100 dark:from-secondary-950 dark:to-secondary-900"
     }
   ];
 
