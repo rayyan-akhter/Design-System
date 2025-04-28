@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
@@ -137,7 +136,7 @@ interface SidebarProps extends React.HTMLAttributes<HTMLDivElement>,
 interface SidebarHeaderProps extends React.HTMLAttributes<HTMLDivElement>,
   VariantProps<typeof sidebarHeaderVariants> {
   icon: React.ReactNode;
-  title: React.ReactNode;
+  headerTitle: React.ReactNode;
   collapseButton?: boolean;
   onCollapseButtonClick?: () => void;
 }
@@ -250,7 +249,7 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
 Sidebar.displayName = "Sidebar";
 
 export const SidebarHeader = React.forwardRef<HTMLDivElement, SidebarHeaderProps>(
-  ({ className, icon, title, collapseButton = true, onCollapseButtonClick, ...props }, ref) => {
+  ({ className, icon, headerTitle, collapseButton = true, onCollapseButtonClick, ...props }, ref) => {
     const { collapsed, setCollapsed, position } = useSidebarContext();
     
     const handleCollapseClick = () => {
@@ -269,7 +268,7 @@ export const SidebarHeader = React.forwardRef<HTMLDivElement, SidebarHeaderProps
       >
         <div className="flex items-center">
           {icon && <div className={cn("text-foreground", !collapsed && "mr-3")}>{icon}</div>}
-          {!collapsed && <div className="font-semibold text-foreground">{title}</div>}
+          {!collapsed && <div className="font-semibold text-foreground">{headerTitle}</div>}
         </div>
         {!collapsed && collapseButton && (
           <button
