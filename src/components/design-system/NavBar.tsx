@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -8,6 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger 
 } from "@/components/ui/dropdown-menu";
+import { motion } from "framer-motion";
 import { ChevronDown, Book, CircleUser, Palette, LayoutGrid } from "lucide-react";
 
 const NavBar = () => {
@@ -20,25 +20,36 @@ const NavBar = () => {
   ];
 
   return (
-    <nav className="border-b bg-background shadow-sm sticky top-0 z-10">
+    <motion.nav 
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className="border-b bg-background/80 backdrop-blur-md shadow-sm sticky top-0 z-10"
+    >
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-xl font-bold text-primary flex items-center gap-2">
-            <CircleUser />
-            <span>Design System</span>
-          </Link>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="text-xl font-bold text-primary flex items-center gap-2"
+          >
+            <Link to="/" className="flex items-center gap-2">
+              <CircleUser className="text-primary-600" />
+              <span className="bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">
+                Design System
+              </span>
+            </Link>
+          </motion.div>
           
           <div className="hidden md:flex items-center space-x-6">
-            <Link to="/" className="hover:text-primary transition-colors font-medium">Home</Link>
+            <Link to="/" className="hover:text-primary transition-colors duration-300 font-medium">Home</Link>
             
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center gap-1 hover:text-primary transition-colors font-medium focus-visible:outline-none">
+              <DropdownMenuTrigger className="flex items-center gap-1 hover:text-primary transition-colors duration-300 font-medium focus-visible:outline-none">
                 Components <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
+              <DropdownMenuContent align="end" className="bg-background/80 backdrop-blur-md">
                 {componentLinks.map((link) => (
                   <DropdownMenuItem key={link.name} asChild>
-                    <Link to={link.path} className="flex items-center">
+                    <Link to={link.path} className="flex items-center hover:text-primary-600 transition-colors duration-300">
                       {link.icon}
                       {link.name}
                     </Link>
@@ -47,7 +58,7 @@ const NavBar = () => {
               </DropdownMenuContent>
             </DropdownMenu>
             
-            <Link to="/documentation" className="hover:text-primary transition-colors font-medium flex items-center gap-1">
+            <Link to="/documentation" className="hover:text-primary transition-colors duration-300 font-medium flex items-center gap-1">
               <Book className="h-4 w-4" />
               Documentation
             </Link>
@@ -58,13 +69,13 @@ const NavBar = () => {
               onClick={() => document.documentElement.classList.toggle('dark')} 
               variant="outline"
               size="sm"
-              className="flex items-center"
+              className="flex items-center hover:border-primary-400 transition-all duration-300 transform hover:scale-105"
             >
               Toggle Theme
             </Button>
             
             <Button 
-              className="md:hidden" 
+              className="md:hidden hover:bg-primary-100 transition-colors duration-300" 
               variant="ghost" 
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
@@ -89,24 +100,33 @@ const NavBar = () => {
         </div>
         
         {isOpen && (
-          <div className="md:hidden py-3 space-y-3">
-            <Link to="/" className="block hover:text-primary transition-colors font-medium">Home</Link>
+          <motion.div 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="md:hidden py-3 space-y-3"
+          >
+            <Link to="/" className="block hover:text-primary transition-colors duration-300 font-medium">Home</Link>
             {componentLinks.map((link) => (
-              <Link key={link.name} to={link.path} className="block hover:text-primary transition-colors pl-2 border-l-2 border-primary-200">
+              <Link 
+                key={link.name} 
+                to={link.path} 
+                className="block hover:text-primary transition-colors duration-300 pl-2 border-l-2 border-primary-200"
+              >
                 <div className="flex items-center">
                   {link.icon}
                   {link.name}
                 </div>
               </Link>
             ))}
-            <Link to="/documentation" className="block hover:text-primary transition-colors font-medium flex items-center gap-1">
+            <Link to="/documentation" className="block hover:text-primary transition-colors duration-300 font-medium flex items-center gap-1">
               <Book className="h-4 w-4" />
               Documentation
             </Link>
-          </div>
+          </motion.div>
         )}
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
