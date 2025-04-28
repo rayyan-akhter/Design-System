@@ -3,8 +3,8 @@ import React from 'react';
 import { 
   Tabs, 
   TabsList, 
-  TabsTrigger, 
-  TabsContent 
+  TabTrigger, 
+  TabContent 
 } from '@/components/design-system/Tabs';
 
 const TabsPage = () => {
@@ -20,19 +20,19 @@ const TabsPage = () => {
           <h2 className="text-2xl font-semibold">Default Tabs</h2>
           <Tabs defaultValue="overview">
             <TabsList>
-              <TabsTrigger value="overview">Overview</TabsTrigger>
-              <TabsTrigger value="features">Features</TabsTrigger>
-              <TabsTrigger value="usage">Usage</TabsTrigger>
+              <TabTrigger value="overview">Overview</TabTrigger>
+              <TabTrigger value="features">Features</TabTrigger>
+              <TabTrigger value="usage">Usage</TabTrigger>
             </TabsList>
-            <TabsContent value="overview" className="p-4">
+            <TabContent value="overview" className="p-4">
               Tabs are used to organize content into different sections and allow users to navigate between them.
-            </TabsContent>
-            <TabsContent value="features" className="p-4">
+            </TabContent>
+            <TabContent value="features" className="p-4">
               Features include keyboard navigation, customizable styles, and accessible markup.
-            </TabsContent>
-            <TabsContent value="usage" className="p-4">
+            </TabContent>
+            <TabContent value="usage" className="p-4">
               Tabs are best used when you need to switch between different views in the same context.
-            </TabsContent>
+            </TabContent>
           </Tabs>
         </section>
 
@@ -40,19 +40,19 @@ const TabsPage = () => {
           <h2 className="text-2xl font-semibold">Vertical Tabs</h2>
           <Tabs defaultValue="tab1" orientation="vertical">
             <TabsList>
-              <TabsTrigger value="tab1">First Tab</TabsTrigger>
-              <TabsTrigger value="tab2">Second Tab</TabsTrigger>
-              <TabsTrigger value="tab3">Third Tab</TabsTrigger>
+              <TabTrigger value="tab1">First Tab</TabTrigger>
+              <TabTrigger value="tab2">Second Tab</TabTrigger>
+              <TabTrigger value="tab3">Third Tab</TabTrigger>
             </TabsList>
-            <TabsContent value="tab1" className="p-4">
+            <TabContent value="tab1" className="p-4">
               Content for the first tab goes here.
-            </TabsContent>
-            <TabsContent value="tab2" className="p-4">
+            </TabContent>
+            <TabContent value="tab2" className="p-4">
               Content for the second tab goes here.
-            </TabsContent>
-            <TabsContent value="tab3" className="p-4">
+            </TabContent>
+            <TabContent value="tab3" className="p-4">
               Content for the third tab goes here.
-            </TabsContent>
+            </TabContent>
           </Tabs>
         </section>
       </div>
