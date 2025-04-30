@@ -235,3 +235,87 @@ export const DisabledTabs: Story = {
     </Tabs>
   ),
 };
+
+export const NestedContent: Story = {
+  args: {
+    defaultValue: "dashboard",
+    orientation: "horizontal",
+  },
+  render: (args) => (
+    <Tabs {...args}>
+      <TabsList className="bg-primary/10">
+        <TabsTrigger
+          value="dashboard"
+          className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+        >
+          Dashboard
+        </TabsTrigger>
+        <TabsTrigger
+          value="analytics"
+          className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+        >
+          Analytics
+        </TabsTrigger>
+        <TabsTrigger
+          value="settings"
+          className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+        >
+          Settings
+        </TabsTrigger>
+      </TabsList>
+      <TabsContent value="dashboard" className="mt-4">
+        <div className="p-4 bg-primary/5 rounded-lg">
+          <h3 className="text-lg font-semibold mb-2">Dashboard Overview</h3>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="p-3 bg-white rounded shadow">
+              <h4 className="font-medium">Quick Stats</h4>
+              <p className="text-sm text-gray-600">View your key metrics</p>
+            </div>
+            <div className="p-3 bg-white rounded shadow">
+              <h4 className="font-medium">Recent Activity</h4>
+              <p className="text-sm text-gray-600">Track your latest actions</p>
+            </div>
+          </div>
+        </div>
+      </TabsContent>
+      <TabsContent value="analytics" className="mt-4">
+        <div className="p-4 bg-primary/5 rounded-lg">
+          <h3 className="text-lg font-semibold mb-2">Analytics Dashboard</h3>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="p-3 bg-white rounded shadow">
+              <h4 className="font-medium">Traffic Overview</h4>
+              <p className="text-sm text-gray-600">View traffic statistics</p>
+            </div>
+            <div className="p-3 bg-white rounded shadow">
+              <h4 className="font-medium">User Behavior</h4>
+              <p className="text-sm text-gray-600">Analyze user patterns</p>
+            </div>
+          </div>
+        </div>
+      </TabsContent>
+      <TabsContent value="settings" className="mt-4">
+        <div className="p-4 bg-primary/5 rounded-lg">
+          <h3 className="text-lg font-semibold mb-2">Settings Panel</h3>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="p-3 bg-white rounded shadow">
+              <h4 className="font-medium">Profile Settings</h4>
+              <p className="text-sm text-gray-600">Manage your profile</p>
+            </div>
+            <div className="p-3 bg-white rounded shadow">
+              <h4 className="font-medium">Preferences</h4>
+              <p className="text-sm text-gray-600">Customize your experience</p>
+            </div>
+          </div>
+        </div>
+      </TabsContent>
+    </Tabs>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "A complex tab layout with nested content and custom styling, demonstrating how to create rich tab interfaces.",
+      },
+    },
+  },
+};
